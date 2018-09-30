@@ -25,6 +25,7 @@
 .middle-indicator{
    position:absolute;
    bottom:0;
+   z-index: -1;
    }
   .middle-indicator-text{
    font-size: 4.2rem;
@@ -59,3 +60,6 @@ label {
     max-width: 75%;
 }
 
+.carousel {
+    height: 60vh;
+}

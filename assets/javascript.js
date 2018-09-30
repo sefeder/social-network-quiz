@@ -9,13 +9,17 @@ $(document).ready(function () {
                 $('.prev').hide()
             }else if (slideIndex >= 6){
                 $('.next').hide()
+                $('#submit').show()
             }else{
                 $('.next').show()
                 $('.prev').show()
+                $('#submit').hide()
             }
         }
     });
 });
+
+$('#submit').hide()
 
 // next carousel item
 $('.next').click(function (e) {
