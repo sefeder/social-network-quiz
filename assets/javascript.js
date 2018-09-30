@@ -1,8 +1,23 @@
 $(document).ready(function () {
     $('.carousel.carousel-slider').carousel({
         fullWidth: true,
-        indicators: true
+        indicators: true,
+        noWrap: true
     });
+});
+
+// next carousel item
+$('.next').click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $('.carousel').carousel('next');
+});
+
+//  prev carousel item
+$('.prev').click(function (e) {
+    e.preventDefault();
+    e.stopPropagation();
+    $('.carousel').carousel('prev');
 });
 
 limitChecks = limits => {
@@ -29,6 +44,8 @@ $('#submit').on('click', function(event){
        }
    })
    console.log("final sums: ", finalSums)
+
+   
 
 let platformArray = [
     {
