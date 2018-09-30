@@ -19,15 +19,15 @@ $(document).ready(function () {
 
 // next carousel item
 $('.next').click(function (e) {
-    e.preventDefault();
-    e.stopPropagation();
+    // e.preventDefault();
+    // e.stopPropagation();
     $('.carousel').carousel('next');
 });
 
 //  prev carousel item
 $('.prev').click(function (e) {
-    e.preventDefault();
-    e.stopPropagation();
+    // e.preventDefault();
+    // e.stopPropagation();
     $('.carousel').carousel('prev');
 });
 
