@@ -2,7 +2,18 @@ $(document).ready(function () {
     $('.carousel.carousel-slider').carousel({
         fullWidth: true,
         indicators: true,
-        noWrap: true
+        noWrap: true,
+        onCycleTo: function (ele, dragged) {
+            const slideIndex = $(ele).index();
+            if(slideIndex === 1){
+                $('.prev').hide()
+            }else if (slideIndex >= 6){
+                $('.next').hide()
+            }else{
+                $('.next').show()
+                $('.prev').show()
+            }
+        }
     });
 });
 
