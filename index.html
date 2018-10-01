@@ -15,7 +15,7 @@
 <body>
 
     <div class="container">
-        <div class="row">
+        <div class="row" id="carousel-wrapper">
         <div id="questions" class="carousel carousel-slider">
             <div class="carousel-fixed-item center middle-indicator">
                 <div class="left">
@@ -206,10 +206,20 @@
                 Submit
             </button>
         </div>
+        <div class="center-align" id="results-wrapper">
+            <canvas id="resultsChart" class="results-chart"></canvas>
+            <button class="btn waves-effect waves-light" id="edit-responses">
+                Edit Responses
+            </button>
+            <button class="btn waves-effect waves-light" id="retake">
+                Retake Quiz
+            </button>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.2/Chart.min.js"></script>
     <script src="./assets/javascript.js"></script>
 
 </body>

@@ -20,6 +20,7 @@ $(document).ready(function () {
 });
 
 $('#submit').hide()
+$('#results-wrapper').hide();
 
 // next carousel item
 $('.next').click(function (e) {
@@ -62,39 +63,82 @@ $('#submit').on('click', function(event){
 
    
 
-let platformArray = [
-    {
-        platform: 'Facebook',
-        value: finalSums[0]
-    },
-    {
-        platform: 'Instagram',
-        value: finalSums[1]
-    },
-    {
-        platform: 'Twitter',
-        value: finalSums[2]
-    },
-    {
-        platform: 'LinkedIn',
-        value: finalSums[3]    
-    },
-    {
-        platform: 'Pinterest',
-        value: finalSums[4]
-    },
-    {
-        platform: 'YouTube',
-        value: finalSums[5]
-    }
-]
+    let platformArray = [
+        {
+            platform: 'Facebook',
+            value: finalSums[0],
+            color: 'rgb(74,101,159)'
+        },
+        {
+            platform: 'Instagram',
+            value: finalSums[1],
+            color: 'rgb(171,56,143)'
+        },
+        {
+            platform: 'Twitter',
+            value: finalSums[2],
+            color: 'rgb(29,161,242)'
+        },
+        {
+            platform: 'LinkedIn',
+            value: finalSums[3],
+            color: 'rgb(40,62,74)'    
+        },
+        {
+            platform: 'Pinterest',
+            value: finalSums[4],
+            color: 'rgb(196,53,53)'
+        },
+        {
+            platform: 'YouTube',
+            value: finalSums[5],
+            color: 'rgb(243,0,7)'
+        }
+    ]
 
-console.log('platformArray: ', platformArray)
+    console.log('platformArray: ', platformArray)
 
-let sortedArray = platformArray.slice(0)
-sortedArray.sort(function(a,b){
-   return b.value-a.value
+    let sortedArray = platformArray.slice(0)
+    sortedArray.sort(function(a,b){
+    return b.value-a.value
+    })
+    console.log('sortedArray: ', sortedArray)
+
+    var ctx = document.getElementById('resultsChart').getContext('2d');
+
+    data = {
+        datasets: [{
+            data: sortedArray.map(e => {
+                return e.value
+            }),
+            backgroundColor: sortedArray.map(e => {
+                return e.color
+            })
+        }],
+
+        // These labels appear in the legend and in the tooltips when hovering different arcs
+        labels: sortedArray.map(e => {
+            return e.platform
+        })
+    };
+
+    const myDoughnutChart = new Chart(ctx, {
+        type: 'doughnut',
+        data: data,
+        // options: options
+    });
+
+    $('#carousel-wrapper').hide();
+    $('#submit').hide();
+    $('#results-wrapper').show();
+
 })
-console.log('sortedArray: ', sortedArray)
 
+$('#edit-responses').on('click', function (event) {
+    $('#carousel-wrapper').show();
+    $('#submit').show();
+    $('#results-wrapper').hide();
 })
+
+
+

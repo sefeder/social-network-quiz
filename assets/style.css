@@ -61,5 +61,17 @@ label {
 }
 
 .carousel {
-    height: 60vh;
+    height: 85vh;
+}
+
+.results-chart {
+    max-width: 75%;
+    max-height: 75%;
+}
+
+#results-wrapper {
+    display: flex;
+    flex-flow: column wrap;
+    align-items: center;
+    justify-content: space-around;
 }
