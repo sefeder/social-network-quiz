@@ -59,7 +59,6 @@ $('#submit').on('click', function(event){
    let checkedInputs = $('#questions').find('input:checked')
    checkedInputs.each((idx, input) =>{
         let values = JSON.parse(input.value)
-        console.log(idx, values)
        for (let i = 0; i < finalSums.length; i++) {
            finalSums[i] = finalSums[i] + values[i];
        }
@@ -111,22 +110,16 @@ $('#submit').on('click', function(event){
 
 
 
-    let data = {
-        datasets: [{
-            data: sortedArray.map(e => {
+    let newDataSet = {
+            data: platformArray.map(e => {
                 return e.value
             }),
-            backgroundColor: sortedArray.map(e => {
+            backgroundColor: platformArray.map(e => {
                 return e.color
             })
-        }],
-
-        // These labels appear in the legend and in the tooltips when hovering different arcs
-        labels: sortedArray.map(e => {
-            return e.platform
-        })
-    };
-    myDoughnutChart.data = data
+        };
+    myDoughnutChart.data.datasets.unshift(newDataSet)
+    myDoughnutChart.data.labels = platformArray.map(e =>e.platform)
     myDoughnutChart.update()
 
     
@@ -149,6 +142,9 @@ $('#retake').on('click', function (event) {
     $('#submit').show();
     $('#results-wrapper').hide();
 })
-
+$('#delete-result').on('click', function (event) {
+    myDoughnutChart.data.datasets.pop();
+    myDoughnutChart.update()
+})
 
 
