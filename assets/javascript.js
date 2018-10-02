@@ -21,6 +21,11 @@ $(document).ready(function () {
 
 $('#submit').hide()
 $('#results-wrapper').hide();
+const ctx = document.getElementById('resultsChart').getContext('2d');
+const myDoughnutChart = new Chart(ctx, {
+    type: 'doughnut',
+    data: {},
+});
 
 // next carousel item
 $('.next').click(function (e) {
@@ -104,9 +109,9 @@ $('#submit').on('click', function(event){
     })
     console.log('sortedArray: ', sortedArray)
 
-    var ctx = document.getElementById('resultsChart').getContext('2d');
 
-    data = {
+
+    let data = {
         datasets: [{
             data: sortedArray.map(e => {
                 return e.value
@@ -121,12 +126,10 @@ $('#submit').on('click', function(event){
             return e.platform
         })
     };
+    myDoughnutChart.data = data
+    myDoughnutChart.update()
 
-    const myDoughnutChart = new Chart(ctx, {
-        type: 'doughnut',
-        data: data,
-        // options: options
-    });
+    
 
     $('#carousel-wrapper').hide();
     $('#submit').hide();
@@ -135,6 +138,13 @@ $('#submit').on('click', function(event){
 })
 
 $('#edit-responses').on('click', function (event) {
+    $('#carousel-wrapper').show();
+    $('#submit').show();
+    $('#results-wrapper').hide();
+})
+$('#retake').on('click', function (event) {
+    $('.carousel').carousel('set',0)
+    $('input:checkbox').prop('checked', false)
     $('#carousel-wrapper').show();
     $('#submit').show();
     $('#results-wrapper').hide();
