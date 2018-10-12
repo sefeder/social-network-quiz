@@ -101,13 +101,13 @@ $('#submit').on('click', function(event){
 
     $('#winner-image').attr('src', `./assets/images/${sortedArray[0].platform}.png`)
     $('#winner-text').text(sortedArray[0].platform)
-    $('#other-networks-text').text(`Once you\'ve conquered ${sortedArray[0].platform}, we recommend adding these others in this order:`)
+    $('#other-networks-text').text(`Once you\'ve conquered ${sortedArray[0].platform}, we recommend adding these other networks in this order:`)
     $('#first-runnerup-image').attr('src', `./assets/images/${sortedArray[1].platform}.png`)
-    $('#first-runnerup-text').text(sortedArray[1].platform)
+    $('#first-runnerup-text').text(`1. ${sortedArray[1].platform}`)
     $('#second-runnerup-image').attr('src', `./assets/images/${sortedArray[2].platform}.png`)
-    $('#second-runnerup-text').text(sortedArray[2].platform)
+    $('#second-runnerup-text').text(`2. ${sortedArray[2].platform}`)
     $('#third-runnerup-image').attr('src', `./assets/images/${sortedArray[3].platform}.png`)
-    $('#third-runnerup-text').text(sortedArray[3].platform)
+    $('#third-runnerup-text').text(`3. ${sortedArray[3].platform}`)
 
     $('#carousel-wrapper').hide();
     $('#submit').hide();
@@ -116,7 +116,7 @@ $('#submit').on('click', function(event){
     setTimeout(() => {
         $('#inner-loading-wrapper').hide();
         $('#results-wrapper').show();
-    }, 3000);
+    }, 2000);
 
     // let newDataSet = {
     //         data: platformArray.map(e => {

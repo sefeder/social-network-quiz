@@ -1,5 +1,5 @@
 .question-div {
-    background-color: rgb(255, 123, 0);
+    background-color: rgb(178, 228, 248);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -79,9 +79,23 @@ label {
 #winner-image {
     height: 250px;
     width: 250px;
+    -webkit-animation: rotate-in-center 1.5s;
 }
 
-#first-runnerup-image {
+.runnerup-image {
+    height: 175px;
+    width: 175px;
+    
+}
+
+#winner-text {
+    font-weight: bold;
+    -webkit-animation: slide-in-right 1.5s;
+}
+
+
+
+/* #first-runnerup-image {
     height: 200px;
     width: 200px;
 }
@@ -94,7 +108,7 @@ label {
 #third-runnerup-image {
     height: 150px;
     width: 150px;
-}
+} */
 
 #outer-loading-wrapper {
     display: flex;
@@ -105,4 +119,43 @@ label {
 
 #inner-loading-wrapper {
     align-self: center;
+}
+
+#runnerup-list {
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.runnerup{
+     display: flex;
+    flex-direction: column;
+    margin-left: 2%;
+    margin-right: 2%;
+}
+
+@-webkit-keyframes rotate-in-center {
+  0% {
+    -webkit-transform: rotate(-360deg);
+            transform: rotate(-360deg);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: rotate(0);
+            transform: rotate(0);
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes slide-in-right {
+  0% {
+    -webkit-transform: translateX(1000px);
+            transform: translateX(1000px);
+    opacity: 0;
+  }
+  100% {
+    -webkit-transform: translateX(0);
+            transform: translateX(0);
+    opacity: 1;
+  }
 }
