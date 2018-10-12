@@ -122,9 +122,12 @@ label {
 }
 
 #runnerup-list {
+    width: 100%;
     padding: 0;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
 }
 
 .runnerup{
