@@ -75,3 +75,34 @@ label {
     align-items: center;
     justify-content: space-around;
 }
+
+#winner-image {
+    height: 250px;
+    width: 250px;
+}
+
+#first-runnerup-image {
+    height: 200px;
+    width: 200px;
+}
+
+#second-runnerup-image {
+    height: 175px;
+    width: 175px;
+}
+
+#third-runnerup-image {
+    height: 150px;
+    width: 150px;
+}
+
+#outer-loading-wrapper {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: stretch;
+}
+
+#inner-loading-wrapper {
+    align-self: center;
+}
